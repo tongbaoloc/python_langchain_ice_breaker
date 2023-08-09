@@ -21,7 +21,7 @@ pipevn install openai
 
 10. Integrating Linkedin Data Processing - Part 1 - Scraping
   
-Pull rich data about people and companies: https://nubela.co/proxycurl/ | https://serpapi.com/
+Pull rich data about people and companies: | 
 
 12. Linkedin Data Processing- Part 3: Tools, AgentType & initialize_agent
 -- Create a new tools 
@@ -35,6 +35,13 @@ Pull rich data about people and companies: https://nubela.co/proxycurl/ | https:
 pipenv install tweepy
 
 ## External API
+### Proxycurl is a proxy API that allows you to scrape the web without getting blocked. It's fast, easy to use, and reliable.
+https://nubela.co/proxycurl/  
+
+
+### SerpApi is a real-time API to access Google search results. We handle the issues of having to rent proxies, solving captchas, and JSON parsing in an easy to use and integrate API for our customers.
+https://serpapi.com/
+
 ### Tweepy is a Python library for accessing the Twitter API.
 Got forbidden issue when using tweepy
 pipenv install tweepy
