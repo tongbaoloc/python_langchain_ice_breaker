@@ -1,7 +1,4 @@
-import json
 import logging
-from datetime import datetime, timezone
-from dateutil.parser import parse as parse_datetime
 
 logger = logging.getLogger("twitter")
 
