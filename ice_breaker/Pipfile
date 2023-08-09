@@ -8,6 +8,7 @@ langchain = "*"
 black = "*"
 openai = "*"
 google-search-results = "*"
+tweepy = "*"
 
 [dev-packages]
 

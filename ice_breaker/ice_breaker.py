@@ -5,6 +5,7 @@ from langchain.chat_models import ChatOpenAI
 
 from agents import linkedin_lookup_agent
 from third_parties.linkedin import get_linkedin_data
+from third_parties.twitter import scrape_user_tweets
 
 # information = """
 #     Elon Reeve Musk (/ˈiːlɒn/ EE-lon; born June 28, 1971) is a business magnate and investor. He is the founder, chairman, CEO and chief technology officer of SpaceX; the angel investor, CEO and product architect of Tesla, Inc.; the owner and CTO of Twitter; the founder of the Boring Company; the co-founder of Neuralink and OpenAI; and the president of the Musk Foundation. Musk is the wealthiest person in the world, with an estimated net worth of US$239 billion as of July 2023, according to the Bloomberg Billionaires Index, and $248.8 billion according to Forbes's Real Time Billionaires list, primarily from his ownership stakes in Tesla and SpaceX.[4][5][6]
@@ -17,22 +18,25 @@ from third_parties.linkedin import get_linkedin_data
 # """
 
 if __name__ == "__main__":
-    summary_template = """"
-        given the Linkedin information {information} about a person from I want you to create:
-        1. a short summary of the person
-        2. why the person is famous?
-    """
-
-    summary_prompt_template = PromptTemplate(
-        input_variables=["information"], template=summary_template)
-
-    llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo", openai_api_key= os.getenv("OPENAI_API_KEY"))
-
-    chain = LLMChain(llm=llm, prompt=summary_prompt_template)
-
-    # Tu lay  linkined url tu ho va ten
-    linkedin_profile_url = linkedin_lookup_agent.lookup("Learning Vault")
-    # linkedin_profile_url = "https://linkedin.com/in/bao-loc-tong-a523372a/"
-    data = get_linkedin_data(linkedin_profile_url)
-    # print(data)
-    print(chain.run(information=data))
+    # summary_template = """"
+    #     given the Linkedin information {information} about a person from I want you to create:
+    #     1. a short summary of the person
+    #     2. why the person is famous?
+    # """
+    #
+    # summary_prompt_template = PromptTemplate(
+    #     input_variables=["information"], template=summary_template)
+    #
+    # llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo", openai_api_key= os.getenv("OPENAI_API_KEY"))
+    #
+    # chain = LLMChain(llm=llm, prompt=summary_prompt_template)
+    #
+    # # Tu lay  linkined url tu ho va ten
+    # linkedin_profile_url = linkedin_lookup_agent.lookup("Learning Vault")
+    # # linkedin_profile_url = "https://linkedin.com/in/bao-loc-tong-a523372a/"
+    # data = get_linkedin_data(linkedin_profile_url)
+    # # print(data)
+    # print(chain.run(information=data))
+    #
+    twitter_username = scrape_user_tweets("elonmusk")
+    print(twitter_username)
